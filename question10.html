@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap Array Values </title>
+
+    <style>
+        input,
+        button {
+            margin: 5px 0;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <label>Enter first array (comma-separated values) :</label>
+    <input type="text" id="array1">
+    <div>
+
+        <label>Enter second array (comma-separated values) :</label>
+        <input type="text" id="array2">
+    </div>
+
+    <button onclick="swapFn()">Click</button>
+
+
+    <script>
+        function swapFn() {
+
+            var arr1 = document.getElementById("array1").value.split(',');
+            var arr2 = document.getElementById("array2").value.split(',');
+
+            var temp = arr1;
+            arr1 = arr2;
+            arr2 = temp;
+
+            console.log("array1 =", arr1);
+            console.log("array2 =", arr2);
+
+        }
+
+    </script>
+</body>
+
+</html>

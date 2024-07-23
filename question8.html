@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd numbers</title>
+</head>
+
+<body>
+    <h2>Sum of odd numbers</h2>
+
+    <label>Enter limit</label>
+    <input type="number" id="numberId">
+
+    <button onclick="sumFn()">Click</button>
+    <p id="pid"></p>
+
+    <script>
+
+
+        function sumFn() {
+            var limit = parseInt(document.getElementById("numberId").value);
+            sum = 0;
+            for (var i = 1; i <= limit; i++) {
+                if (i % 2 == 1) {
+                    sum = sum + i;
+                }
+            }
+            document.getElementById("pid").innerHTML = "The sum of all odd numbers up to " + limit + " is: " + sum;
+        }
+    </script>
+
+</body>
+
+</html>
