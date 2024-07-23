@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of numbers</title>
+</head>
+
+<body>
+
+
+    <label>Num1</label>
+    <input type="text" id="num1Id">
+
+
+    <label>Num2</label>
+    <input type="text" id="num2Id">
+
+    <button onclick="sumFn()">Sum</button>
+    <p id="demo"></p>
+
+    <script>
+        function sumFn() {
+var val1 = document.getElementById("num1Id").value;
+var val2 = document.getElementById("num2Id").value;
+
+var x = parseInt(val1);
+var y = parseFloat(val2);
+var sum = x+y;
+
+document.getElementById("demo").innerHTML = sum;
+        }
+    </script>
+</body>
+
+</html>
