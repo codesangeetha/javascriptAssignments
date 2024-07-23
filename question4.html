@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pass or Fail</title>
+</head>
+
+<body>
+
+    <label>Enter mark :</label>
+    <input type="text" id="inputId">
+
+    <button onclick="btnFn()">Click</button>
+    <p id="pId"></p>
+
+    <script>
+
+        function btnFn() {
+
+            var val = parseFloat(document.getElementById("inputId").value);
+            let mark = val;
+            if (mark >= 50) {
+                document.getElementById("pId").innerHTML = "Passed";
+            } else {
+                document.getElementById("pId").innerHTML = "Failed";
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
