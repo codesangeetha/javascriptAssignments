@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of numbers</title>
+</head>
+
+<body>
+
+
+    <label>Principle Amount</label>
+    <input type="text" id="amountId">
+
+
+    <label>Interest rate</label>
+    <input type="text" id="interestId">
+
+    <label>Number of years</label>
+    <input type="text" id="yearsId">
+
+    <button onclick="interestFn()">Sum</button>
+    <p id="demo"></p>
+
+    <script>
+        function interestFn() {
+let p = parseInt(document.getElementById("amountId").value) ;
+let r = parseFloat(document.getElementById("interestId").value);
+let n = parseFloat(document.getElementById("yearsId").value);
+
+var simpleInterest = (p*r*n) /100  ;
+
+
+document.getElementById("demo").innerHTML =simpleInterest ;
+        }
+    </script>
+</body>
+
+</html>
