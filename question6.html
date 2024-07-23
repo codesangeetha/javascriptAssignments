@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch case</title>
+</head>
+
+<body>
+
+    <label>Enter number :</label>
+    <input type="text" id="id1">
+
+    <button onclick="btnFn()">Click</button>
+
+    <p id="pId"></p>
+
+    <script>
+        function btnFn() {
+            var val = parseInt(document.getElementById("id1").value);
+
+            switch (val) {
+                case 1:
+                    document.getElementById("pId").innerHTML = "Sunday";
+                    break;
+
+                case 2:
+                    document.getElementById("pId").innerHTML = "Monday";
+                    break;
+
+                case 3:
+                    document.getElementById("pId").innerHTML = "Tuesday";
+                    break;
+
+                case 4:
+                    document.getElementById("pId").innerHTML = "Wednesday";
+                    break;
+
+                case 5:
+                    document.getElementById("pId").innerHTML = "Thursday";
+                    break;
+
+                case 6:
+                    document.getElementById("pId").innerHTML = "Friday";
+                    break;
+
+                case 7:
+                    document.getElementById("pId").innerHTML = "Saturday";
+                    break;
+                default:
+                    document.getElementById("pId").innerHTML = "Invalid Entry";
+
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
