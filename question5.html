@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark grade</title>
+</head>
+
+<body>
+
+    <label>Enter total mark :</label>
+    <input type="text" id="inputId">
+    <button onclick="btnFn()">Click</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function btnFn() {
+
+            let totalMark = parseFloat(document.getElementById("inputId").value);
+
+            if (totalMark > 90) {
+                document.getElementById("demo").innerHTML = "A";
+            } else if (totalMark > 80) {
+                document.getElementById("demo").innerHTML = "B";
+            } else if (totalMark > 70) {
+                document.getElementById("demo").innerHTML = "C";
+            } else if (totalMark > 60) {
+                document.getElementById("demo").innerHTML = "D";
+            } else if (totalMark > 50) {
+                document.getElementById("demo").innerHTML = "E";
+            } else {
+                document.getElementById("demo").innerHTML = "Failed";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
