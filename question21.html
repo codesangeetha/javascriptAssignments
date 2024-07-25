@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiply Adjacent value</title>
+
+
+    <style>
+        input,
+        button {
+            margin: 5px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div>
+        <h2>Multiply Adjacent value</h2>
+        <label>Enter the values of array (comma-separated values):</label>
+        <input type="text" id="array1">
+    </div>
+    <button onclick="adjacentFn()">Click</button>
+
+    <p id="result"></p>
+    <script>
+        function adjacentFn() {
+            var arr = document.getElementById("array1").value.split(',');
+            var len = arr.length;
+            var arr2 = [];
+
+            for (var i = 0; i < len - 1; i++) {
+                arr2.push(arr[i] * arr[i + 1]);
+            }
+
+            document.getElementById("result").innerHTML = arr2.join(',');
+        }
+
+
+    </script>
+
+</body>
+
+</html>

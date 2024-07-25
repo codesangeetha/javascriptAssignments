@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+
+    <style>
+        input,
+        button {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Tax income calculator</h2>
+    <label>Enter the annual income:</label>
+    <input type="text" id="annualIncome">
+    <br>
+    <button onclick="calculateTaxFn()">Calculate Tax</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateTaxFn() {
+            var annualIncome = parseFloat(document.getElementById("annualIncome").value);
+            var taxAmount = 0;
+
+
+            if (annualIncome > 250000) {
+                if (annualIncome <= 500000) {
+                    taxAmount = (annualIncome - 250000) * 0.05;
+                } else if (annualIncome <= 1000000) {
+                    taxAmount = (250000 * 0.05) + ((annualIncome - 500000) * 0.20);
+                } else if (annualIncome <= 5000000) {
+                    taxAmount = (250000 * 0.05) + (500000 * 0.20) + ((annualIncome - 1000000) * 0.30);
+                } 
+            }
+
+            document.getElementById("result").innerHTML = "Income tax amount = " + taxAmount.toFixed(2);
+
+        }
+
+    </script>
+</body>
+
+</html>

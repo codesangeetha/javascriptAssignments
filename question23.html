@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Array Storage and Display</title>
+</head>
+<body>
+    <h2>2D Array Storage and Display</h2>
+
+    <div>
+        <label for="arrayInput">Enter values for the array (comma separated, rows separated by new lines):</label>
+        <textarea id="arrayInput" rows="4" cols="50"></textarea>
+    </div>
+    <br>
+    <button onclick="arrayHandler.getArray()">Get Array</button>
+    <button onclick="arrayHandler.displayArray()">Display Array</button>
+
+    <p id="result"></p>
+
+    <script>
+        class ArrayHandler {
+            constructor() {
+                this.array = [];
+            }
+
+            getArray() {
+                const arrayString = document.getElementById('arrayInput').value;
+                this.array = this.parseArray(arrayString);
+                alert('Array has been captured.');
+            }
+
+            displayArray() {
+                if (this.array.length === 0) {
+                    alert('Please input and get the array first.');
+                    return;
+                }
+
+                document.getElementById('result').innerText = this.arrayToString(this.array);
+            }
+
+            parseArray(arrayString) {
+                const rows = arrayString.trim().split('\n');
+                const array = [];
+                for (let i = 0; i < rows.length; i++) {
+                    array[i] = rows[i].split(',').map(Number);
+                }
+                return array;
+            }
+
+            arrayToString(array) {
+                let result = '';
+                for (let i = 0; i < array.length; i++) {
+                    result += array[i].join(', ') + '\n';
+                }
+                return result.trim();
+            }
+        }
+
+        const arrayHandler = new ArrayHandler();
+    </script>
+</body>
+</html>

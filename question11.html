@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even numbers</title>
+
+    <style>
+        input,
+        button {
+            margin: 5px 0;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>Even numbers</h2>
+    <label>Enter the size of an array :</label>
+    <input type="text" id="inputId">
+    <div>
+
+        <label>Enter the values of an array (comma-separated values) :</label>
+        <input type="text" id="array1">
+    </div>
+    <button onclick="evenNumFn()">Click</button>
+    <p id="displayId"></p>
+
+    <script>
+        function evenNumFn() {
+            var size = parseInt(document.getElementById("inputId").value);
+            var arr = document.getElementById("array1").value.split(',');
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = parseInt(arr[i]);
+                
+            }
+            console.log(arr);
+            console.log(size);
+            var count = 0;
+
+            if (arr.length !== size) {
+                document.getElementById("displayId").innerHTML = "Array size does not match the entered size!";
+                return;
+            }
+
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 == 0) {
+                    count = count + 1;
+                }
+            }
+            document.getElementById("displayId").innerHTML = count;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

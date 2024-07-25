@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Calculator</title>
+
+    <style>
+        input,
+        button {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Enter the marks scored by the student</h2>
+    <br>
+    <label>Written test:</label>
+    <input type="text" id="writtenTest">
+    <br>
+    <label>Lab exams:</label>
+    <input type="text" id="labExams">
+    <br>
+    <label>Assignments:</label>
+    <input type="text" id="assignments">
+    <br>
+    <button onclick="calculateGradeButton()">Calculate Grade</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateGradeButton() {
+            var writtenTest = parseFloat(document.getElementById("writtenTest").value);
+            var labExams = parseFloat(document.getElementById("labExams").value);
+            var assignments = parseFloat(document.getElementById("assignments").value);
+            var resultElement = document.getElementById("result");
+
+           
+            var overallGrade = (writtenTest * 70 / 100) + (labExams * 20 / 100) + (assignments * 10 / 100);
+            resultElement.innerHTML = "Grade of the student is " + overallGrade.toFixed(1);
+        }
+
+
+    </script>
+</body>
+
+</html>

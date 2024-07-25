@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Array Addition</title>
+
+    <style>
+        input,
+        button {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>2D Array Addition</h2>
+    <label>Enter the size of arrays:</label>
+    <input type="text" id="arraySize">
+    <br>
+    <label>Enter the values of array 1 (row by row, space-separated):</label>
+    <textarea id="array1" rows="3" cols="30"></textarea>
+    <br>
+    <label>Enter the values of array 2 (row by row, space-separated):</label>
+    <textarea id="array2" rows="3" cols="30"></textarea>
+    <br>
+    <button onclick="addArraysButton()">Add Arrays</button>
+    <p id="result"></p>
+
+    <script>
+        
+        function addArraysButton() {
+
+            var size = parseInt(document.getElementById("arraySize").value);
+            var array1 = document.getElementById("array1").value.trim().split('\n').map(row => row.trim().split(' ').map(Number));
+            var array2 = document.getElementById("array2").value.trim().split('\n').map(row => row.trim().split(' ').map(Number));
+
+            if (array1.length !== size || array2.length !== size || array1.some(row => row.length !== size) || array2.some(row => row.length !== size)) {
+                document.getElementById("result").innerHTML = "Array sizes do not match the specified size!";
+                return;
+            }
+
+            var sumArray = [];
+            for (var i = 0; i < size; i++) {
+                sumArray[i] = [];
+                for (var j = 0; j < size; j++) {
+                    sumArray[i][j] = array1[i][j] + array2[i][j];
+                }
+            }
+
+            var resultString = "Sum of 2 arrays is:<br>";
+            for (var i = 0; i < size; i++) {
+                resultString += sumArray[i].join(' ') + "<br>";
+            }
+
+            document.getElementById("result").innerHTML = resultString;
+        }
+
+    </script>
+</body>
+
+</html>

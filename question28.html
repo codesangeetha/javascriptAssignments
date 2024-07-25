@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Constructor Example</title>
+</head>
+<body>
+    <h1>Car Information</h1>
+    <div id="car-info"></div>
+
+    <script>
+        function Car(name, mileage, max_speed) {
+            this.name = name;
+            this.mileage = mileage;
+            this.max_speed = max_speed;
+        }
+
+
+        const myCar = new Car('Toyota', 25000, 180);
+
+     
+        const carInfoDiv = document.getElementById('car-info');
+        carInfoDiv.innerHTML = `
+            <p>Name: ${myCar.name}</p>
+            <p>Mileage: ${myCar.mileage} km</p>
+            <p>Max Speed: ${myCar.max_speed} km/h</p>
+        `;
+    </script>
+</body>
+</html>

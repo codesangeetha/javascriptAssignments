@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse String and Type Check</title>
+</head>
+<body>
+    <h2>Reverse String and Type Check</h2>
+    <script>
+        function reverseString(my_string) {
+            try {
+                let reversedString = my_string.split('').reverse().join('');
+                console.log(`Reversed string is : ${reversedString}`);
+            } catch (err) {
+                console.log(`Error : ${err.message}`);
+            } finally {
+                console.log(`Type of my_string is : ${typeof my_string}`);
+            }
+        }
+
+        
+        reverseString("1234");       
+        reverseString(Number(1234)); 
+    </script>
+</body>
+</html>

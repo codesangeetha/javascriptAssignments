@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Calculation</title>
+</head>
+<body>
+    <h2>Area Calculation</h2>
+    <label for="shape">Select shape:</label>
+    <select id="shape">
+        <option value="circle">Circle</option>
+        <option value="square">Square</option>
+        <option value="rectangle">Rectangle</option>
+        <option value="triangle">Triangle</option>
+    </select>
+    <button onclick="myClass.main()">Calculate Area</button>
+
+    <div id="inputs"></div>
+    <p id="result"></p>
+
+    <script>
+        class Area {
+            circle(radius) {
+                return Math.PI * radius * radius;
+            }
+
+            square(side) {
+                return side * side;
+            }
+
+            rectangle(length, width) {
+                return length * width;
+            }
+
+            triangle(base, height) {
+                return 0.5 * base * height;
+            }
+        }
+
+        class MyClass extends Area {
+            main() {
+                const shape = document.getElementById('shape').value;
+                this.showInputs(shape);
+            }
+
+            showInputs(shape) {
+                let inputsHTML = '';
+                switch (shape) {
+                    case 'circle':
+                        inputsHTML = '<label for="radius">Radius:</label><input type="number" id="radius">';
+                        break;
+                    case 'square':
+                        inputsHTML = '<label for="side">Side:</label><input type="number" id="side">';
+                        break;
+                    case 'rectangle':
+                        inputsHTML = '<label for="length">Length:</label><input type="number" id="length"><br><label for="width">Width:</label><input type="number" id="width">';
+                        break;
+                    case 'triangle':
+                        inputsHTML = '<label for="base">Base:</label><input type="number" id="base"><br><label for="height">Height:</label><input type="number" id="height">';
+                        break;
+                    default:
+                        inputsHTML = '';
+                }
+                inputsHTML += '<br><button onclick="myClass.calculateArea()">Calculate</button>';
+                document.getElementById('inputs').innerHTML = inputsHTML;
+            }
+
+            calculateArea() {
+                const shape = document.getElementById('shape').value;
+                let area = 0;
+
+                switch (shape) {
+                    case 'circle':
+                        const radius = parseFloat(document.getElementById('radius').value);
+                        area = this.circle(radius);
+                        break;
+                    case 'square':
+                        const side = parseFloat(document.getElementById('side').value);
+                        area = this.square(side);
+                        break;
+                    case 'rectangle':
+                        const length = parseFloat(document.getElementById('length').value);
+                        const width = parseFloat(document.getElementById('width').value);
+                        area = this.rectangle(length, width);
+                        break;
+                    case 'triangle':
+                        const base = parseFloat(document.getElementById('base').value);
+                        const height = parseFloat(document.getElementById('height').value);
+                        area = this.triangle(base, height);
+                        break;
+                    default:
+                        area = 0;
+                }
+
+                document.getElementById('result').innerText = `The area of the ${shape} is ${area.toFixed(2)}.`;
+            }
+        }
+
+        const myClass = new MyClass();
+    </script>
+</body>
+</html>

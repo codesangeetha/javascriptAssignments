@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number</title>
+</head>
+
+<body>
+    <h2>Prime number</h2>
+    <label id="numid">Enter a number</label>
+    <input type="text" id="inputId">
+    <button onclick="primeFn()">Check</button>
+    <p id="result"></p>
+    <script>
+        function primeFn() {
+
+            var num = parseInt(document.getElementById("inputId").value)
+            let flag = 0;
+            for (var i = 2; i <= num / 2; i++) {
+                if (num % i == 0) {
+                    flag = 1;
+                    break;
+                }
+            }
+            if (flag == 0) {
+                document.getElementById("result").innerHTML = "Entered number is a Prime number";
+            } else {
+                document.getElementById("result").innerHTML = "Entered number is not a Prime number";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

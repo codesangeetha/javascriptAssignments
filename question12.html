@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort array in Descending order </title>
+
+    <style>
+        input,
+        button {
+            margin: 5px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Sort array in Descending order</h2>
+    <label>Enter the size of an array :</label>
+    <input type="text" id="sizeId">
+    <div>
+
+        <label>Enter second array (comma-separated values) :</label>
+        <input type="text" id="array1">
+    </div>
+
+    <button onclick="sortFn()">Click</button>
+    <p id="pId"></p>
+
+    <script>
+        function sortFn() {
+            var size = parseInt(document.getElementById("sizeId").value);
+            var arr = document.getElementById("array1").value.split(',').map(Number);
+
+
+            if (arr.length !== size) {
+                document.getElementById("pId").innerHTML = "Array size does not match the number of values entered!";
+
+            } else {
+
+                arr.sort(function (a, b) { return b - a })
+                document.getElementById("pId").innerHTML = arr;
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>

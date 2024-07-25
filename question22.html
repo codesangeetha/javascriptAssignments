@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Array Addition</title>
+</head>
+<body>
+    <h2>2D Array Addition</h2>
+
+    <div>
+        <label for="array1">Enter values for first array (comma separated):</label>
+        <textarea id="array1" rows="4" cols="50"></textarea>
+    </div>
+    <br>
+    <div>
+        <label for="array2">Enter values for second array (comma separated):</label>
+        <textarea id="array2" rows="4" cols="50"></textarea>
+    </div>
+    <br>
+    <button onclick="getArray()">Get Arrays</button>
+    <button onclick="addArray()">Add Arrays</button>
+    <button onclick="displayArray()">Display Array</button>
+
+    <p id="result"></p>
+
+    <script>
+        let array1 = [];
+        let array2 = [];
+        let resultArray = [];
+
+        function getArray() {
+            array1 = parseArray(document.getElementById('array1').value);
+            array2 = parseArray(document.getElementById('array2').value);
+            alert('Arrays have been captured.');
+        }
+
+        function addArray() {
+            if (array1.length === 0 || array2.length === 0) {
+                alert('Please input both arrays first.');
+                return;
+            }
+
+            if (array1.length !== array2.length || array1[0].length !== array2[0].length) {
+                alert('Arrays must be of the same size.');
+                return;
+            }
+
+            resultArray = [];
+            for (let i = 0; i < array1.length; i++) {
+                resultArray[i] = [];
+                for (let j = 0; j < array1[i].length; j++) {
+                    resultArray[i][j] = array1[i][j] + array2[i][j];
+                }
+            }
+
+            alert('Arrays have been added.');
+        }
+
+        function displayArray() {
+            if (resultArray.length === 0) {
+                alert('Please add the arrays first.');
+                return;
+            }
+
+            document.getElementById('result').innerText = arrayToString(resultArray);
+        }
+
+        function parseArray(arrayString) {
+            const rows = arrayString.trim().split('\n');
+            const array = [];
+            for (let i = 0; i < rows.length; i++) {
+                array[i] = rows[i].split(',').map(Number);
+            }
+            return array;
+        }
+
+        function arrayToString(array) {
+            let result = '';
+            for (let i = 0; i < array.length; i++) {
+                result += array[i].join(', ') + '\n';
+            }
+            return result.trim();
+        }
+    </script>
+</body>
+</html>

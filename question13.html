@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+
+    <style>
+        input,
+        button {
+            margin: 5px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Palindrome</h2>
+    <label>Enter a string :</label>
+    <input type="text" id="stringId">
+    </div>
+
+    <button onclick="palindromeFn()">Check</button>
+    <p id="pId"></p>
+
+    <script>
+        function palindromeFn() {
+            var str = document.getElementById("stringId").value;
+            var len = str.length;
+
+            var mid = Math.floor(len / 2);
+
+            for (var i = 0; i < mid; i++) {
+                if (str[i] !== str[len - 1 - i]) 
+                {
+                    document.getElementById("pId").innerHTML = "Entered string is not a Palindrome"
+                } else {
+                    document.getElementById("pId").innerHTML = "Entered string is Palindrome"
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
+
+
